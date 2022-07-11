@@ -1,0 +1,95 @@
+<section class="content">
+    <div class="content-block">
+      <div class="block-header">
+        <!-- breadcrumb -->
+        <app-breadcrumb [title]="'Alumnos'" [items]="['Alumnos']" >
+        </app-breadcrumb>
+      </div>
+      <div class="row clearfix">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+          <div class="card">
+            <div class="header">
+              <h4><strong>Filtro de búsqueda</strong></h4>
+            </div>
+            <div class="body">
+                <form class="register-form m-4" [formGroup]="alumnoForm" (ngSubmit)="submit">
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                            <mat-form-field class="example-full-width" appearance="outline">
+                              <mat-label>Expediente</mat-label>
+                              <input matInput formControlName="expediente" >
+                              <mat-error *ngIf="alumnoForm.get('expediente').hasError('required')">
+                                El expediente es requerido.
+                              </mat-error>
+                            </mat-form-field>
+                          </div>
+                          <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                            <mat-form-field class="example-full-width" appearance="outline">
+                              <mat-label>Nombre</mat-label>
+                              <input matInput formControlName="nombre" >
+                              <mat-error *ngIf="alumnoForm.get('nombre').hasError('required')">
+                                El nombre es requerido.
+                              </mat-error>
+                            </mat-form-field>
+                          </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                            <mat-form-field class="example-full-width" appearance="outline">
+                              <mat-label>CURP</mat-label>
+                              <input matInput formControlName="curp" >
+                              <mat-error *ngIf="alumnoForm.get('curp').hasError('required')">
+                                La CURP es requerida.
+                              </mat-error>
+                            </mat-form-field>
+                          </div>
+                          <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                            <mat-form-field class="example-full-width" appearance="outline">
+                              <mat-label>Correo</mat-label>
+                              <input matInput formControlName="correo" >
+                              <mat-error *ngIf="alumnoForm.get('correo').hasError('required')">
+                                El correo es requerido.
+                              </mat-error>
+                            </mat-form-field>
+                          </div>
+                    </div>
+                    <div class = "row">
+                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                            <mat-form-field class="example-full-width" appearance="outline">
+                              <mat-label>Ciclo</mat-label>
+                                <select matNativeControl formControlName="idCiclo">
+                                  <option></option>
+                                  <option *ngFor="let idciclo of ciclo" >{{idciclo}}</option>
+                         
+                                    <mat-error
+                                        *ngIf="alumnoForm.get('idCiclo').hasError('required')">
+                                        Ingresa el ciclo.
+                                    </mat-error>
+                                </select>
+                              
+                            </mat-form-field>
+                        </div>
+                        <div class="col-auto">
+                            <button  type="submit" mat-mini-fab color="primary">
+                                <mat-icon class="col-white">search</mat-icon>
+                              </button>
+                          </div>
+                          <div class="col-auto">
+                            <button mat-mini-fab color="primary" ><!--(click)="guardarAlumno()"-->
+                              <mat-icon class="col-white">add</mat-icon>
+                            </button>
+                          </div>
+                          <div class="col-auto">
+                            <button  mat-raised-button color="primary" > <!--(click)="consultarTodos()"-->
+                              Consultar Todos
+                            </button>
+                          </div>
+                    </div>
+                    
+                  </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

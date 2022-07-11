@@ -1,0 +1,23 @@
+{
+  "MENUITEMS": {
+    "MAIN": {
+      "TEXT": "Principal"
+    },
+    "DASHBOARD": {
+      "TEXT": "Tablero de mandos",
+      "LIST": {
+        "DASHBOARD1": "Tablero de mandos 1",
+        "DASHBOARD2": "Tablero de mandos 2",
+        "GRUPO": "Administrador de Grupos"
+      }
+    },
+
+    "EMPLOYEE": {    
+        "DASHBOARD": "Tablero"
+    },
+    "CLIENT": {    
+      "TEXT": "Cliente",
+      "DASHBOARD": "Tablero"
+    }
+  }
+}

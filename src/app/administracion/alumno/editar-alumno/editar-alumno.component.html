@@ -1,0 +1,101 @@
+<p>editar-alumno works!</p><section class="content">
+    <div class="content-block">
+        <div class="block-header">
+            <!-- breadcrumb -->
+            <app-breadcrumb [title]="'Editar Alumno'" [items]="['Alumnos']" [active_item]="'Editar Alumno'">
+            </app-breadcrumb>
+        </div>
+        <div class="row clearfix">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                <div class="card">
+                    <div class="header">
+                        <h2>Editar Alumno</h2>
+
+                    </div>
+                    <div class="body">
+                        <form class="m-4" [formGroup]="alumnoForm" (ngSubmit)="editarAlumno ()">
+                            <div class="row">
+                                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-3">
+                                    <mat-form-field class="example-full-width mb-3" appearance="outline">
+                                        <mat-label>Expediente</mat-label>
+                                        <input matInput formControlName="expediente" required>
+                                        <mat-error *ngIf="alumnoForm.get('expediente').hasError('required')">
+                                            Se requiere el expediente
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-3">
+                                    <mat-form-field class="example-full-width mb-3" appearance="outline">
+                                        <mat-label>Nombre del Alumno</mat-label>
+                                        <input matInput formControlName="nombre" required>
+                                        <mat-error *ngIf="alumnoForm.get('nombre').hasError('required')">
+                                            Nombre del Alumno es requerido
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-3">
+                                    <mat-form-field class="example-full-width mb-3" appearance="outline">
+                                        <mat-label>CURP </mat-label>
+                                        <input matInput formControlName="curp" required>
+                                        <mat-error *ngIf="alumnoForm.get('curp').hasError('required')">
+                                            Curp del Alumno es requerido
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-3">
+                                    <mat-form-field class="example-full-width mb-3" appearance="outline">
+                                        <mat-label>Genero </mat-label>
+                                        <input matInput formControlName="genero" required>
+                                        <mat-error *ngIf="alumnoForm.get('genero').hasError('required')">
+                                            Genero del Alumno es requerido
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-3">
+                                        <mat-form-field class="example-full-width mb-3" appearance="outline">
+                                            <mat-label>Correo</mat-label>
+                                            <input matInput formControlName="correo" required>
+                                            <mat-error
+                                                *ngIf="alumnoForm.get('correo').hasError('required') && alumnoForm.get('correo').touched">
+                                                Porfavor ingresa un Correo valido
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-3">
+                                        <mat-form-field class="example-full-width mb-3" appearance="outline">
+                                            <mat-label>Estatus</mat-label>
+                                            <input matInput formControlName="estatus" required>
+                                            <mat-error *ngIf="alumnoForm.get('estatus').hasError('required')">
+                                                Porfavor ingresa un estatus valido
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-3">
+                                        <mat-form-field class="example-full-width mb-3" appearance="outline">
+                                            <mat-label>Ciclo Id</mat-label>
+                                            <input matInput formControlName="ciclo" required>
+                                            <mat-error *ngIf="alumnoForm.get('ciclo').hasError('required')">
+                                                Porfavor ingresa un estatus valido
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="row">
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-3">
+                                    <button class="btn-space" [disabled]="!alumnoForm.valid " mat-raised-button
+                                        color="primary">Guardar</button>
+                                    <button type="button" mat-button>Cancel</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

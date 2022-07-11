@@ -1,0 +1,23 @@
+<div class="container">
+    <h3 mat-dialog-title>¿Desea continuar con la eliminación?</h3>
+    <div mat-dialog-content>
+      <div class="row">
+
+        <!--Modal Text-->
+        <div class="col-8">
+          <dl class="dl-horizontal">
+            <dt class="pull-left me-2">Id:</dt>
+            <dd type="number" >{{data.id}}</dd>
+            <dt class="pull-left me-2">Nombre:</dt>
+            <dd> {{ data.nombre }}</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+    <mat-dialog-actions align="end" class="mb-1">
+      <button mat-flat-button color="warn" [mat-dialog-close]="1" (click)="confirmDelete(data.id)">
+        Eliminar
+      </button>
+      <button mat-flat-button (click)="onNoClick()" tabindex="-1">Cancelar</button>
+    </mat-dialog-actions>
+  </div>

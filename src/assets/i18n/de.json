@@ -1,0 +1,23 @@
+{
+  "MENUITEMS": {
+    "MAIN": {
+      "TEXT": "Main"
+    },
+    "DASHBOARD": {
+      "TEXT": "Armaturenbrett",
+      "LIST": {
+        "DASHBOARD1": "Armaturenbrett 1",
+        "DASHBOARD2": "Armaturenbrett 2",
+        "GRUPO": "Administrador de Grupos"
+      }
+    },
+  
+    "EMPLOYEE": {    
+        "DASHBOARD": "Armaturenbrett"
+    },
+    "CLIENT": {    
+      "TEXT": "Klientin",
+      "DASHBOARD": "Armaturenbrett"
+    }
+  }
+}

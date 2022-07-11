@@ -1,0 +1,113 @@
+<div class="addContainer">
+    <div class="modalHeader">
+      <div class="editRowModal">
+        <div class="modalHeader clearfix">
+          <mat-icon matSuffix>editar</mat-icon>
+          <div class="modal-about">
+            <div class="font-weight-bold p-t-5 ms-2 me-2 font-17">
+              {{dialogTitle}}</div>
+          </div>
+        </div>
+      </div>
+      <button mat-icon-button (click)="dialogRef.close()" aria-label="Close dialog">
+        <mat-icon>cerrar</mat-icon>
+      </button>
+    </div>
+    <div mat-dialog-content>
+      <form class="register-form m-4" [formGroup]="alumnoForm" (ngSubmit)="submit">
+        <div class="row">
+           
+          <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Expediente</mat-label>
+              <input matInput formControlName="expediente" required>
+              <mat-error *ngIf="alumnoForm.get('expediente').hasError('required')">
+                El expediente es requerido.
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Nombre</mat-label>
+              <input matInput formControlName="nombre" required>
+              <mat-error *ngIf="alumnoForm.get('nombre').hasError('required')">
+                El nombre es requerido.
+              </mat-error>
+            </mat-form-field>
+          </div>
+          
+        </div>
+        <div class="row">
+            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                <mat-form-field class="example-full-width" appearance="outline">
+                  <mat-label>CURP</mat-label>
+                  <input matInput formControlName="curp" required>
+                  <mat-error *ngIf="alumnoForm.get('curp').hasError('required')">
+                    La CURP es requerida.
+                  </mat-error>
+                </mat-form-field>
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                <mat-form-field class="example-full-width" appearance="outline">
+                  <mat-label>Sexo</mat-label>
+                  <select matNativeControl formControlName="genero">
+                    <option value = "Masculino">Masculino</option>
+                    <option value = "Femenino">Femenino</option>
+                    <option value = "Otro">Otro</option>
+                    <mat-error *ngIf="alumnoForm.get('estatus').hasError('required')">
+                      Seleccione un estatus.
+                    </mat-error>
+                  </select>
+                </mat-form-field>
+              </div>
+        </div>
+        <div class="row">
+            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                <mat-form-field class="example-full-width" appearance="outline">
+                  <mat-label>Correo</mat-label>
+                  <input matInput formControlName="correo" required>
+                  <mat-error *ngIf="alumnoForm.get('correo').hasError('required')">
+                    El correo es requerido.
+                  </mat-error>
+                </mat-form-field>
+            </div>
+              <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                <mat-form-field class="example-full-width" appearance="outline">
+                  <mat-label>Estatus</mat-label>
+                  <select matNativeControl formControlName="estatus">
+                    <option value = "1">Activo</option>
+                    <option value = "0">Inactivo</option>
+                    <mat-error *ngIf="alumnoForm.get('estatus').hasError('required')">
+                      Seleccione un estatus.
+                    </mat-error>
+                  </select>
+                </mat-form-field>
+              </div>
+        </div>
+        <div class="row">
+            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                <mat-form-field class="example-full-width" appearance="outline">
+                  <mat-label>Id ciclo</mat-label>
+                  <select matNativeControl formControlName="idCiclo">
+                      <option></option>
+                      <option *ngFor="let idciclo of ciclo" >{{idciclo}}</option>
+             
+                  <mat-error
+                  *ngIf="alumnoForm.get('idCiclo').hasError('required')">
+                  Ingresa el ciclo.
+                  </mat-error>
+                </select>
+                </mat-form-field>
+             
+              </div>
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                <div class="example-button-row" align="end">
+                  <button mat-raised-button color="primary" [type]="submit" [disabled]="!alumnoForm.valid"
+                    [mat-dialog-close]="1" (click)="confirmAdd()">Guardar</button>
+                  <button mat-raised-button color="warn" (click)="onNoClick()" tabindex="-1">Cancelar</button>
+                </div>
+              </div>  
+        </div>
+      </form>
+    </div>
+  </div>

@@ -1,0 +1,91 @@
+<section class="content">
+    <div class="content-block">
+      <div class="block-header">
+        <!-- breadcrumb -->
+        <app-breadcrumb [title]="'Edit Client'" [items]="['Clients']" [active_item]="'Edit Client'">
+        </app-breadcrumb>
+      </div>
+      <div class="row clearfix">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+          <div class="card">
+            <div class="header">
+              <h2>Editar Ciclo</h2>
+  
+            </div>
+            <div class="body">
+              <form class="m-4" [formGroup]="cicloForm" (ngSubmit)="editarCiclo ()">
+                <div class="row">
+                  <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-3">
+                    <mat-form-field class="example-full-width mb-3" appearance="outline">
+                      <mat-label>Clave</mat-label>
+                      <input matInput formControlName="clave" required>
+                      <mat-error *ngIf="cicloForm.get('clave').hasError('required')">
+                        Campo obligatorio
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                  <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-3">
+                    <mat-form-field class="example-full-width mb-3" appearance="outline">
+                      <mat-label>Nombre del Ciclo</mat-label>
+                      <input matInput formControlName="nombre" required>
+                      <mat-error *ngIf="cicloForm.get('nombre').hasError('required')">
+                        Ingresa un ciclo válido
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-3">
+                    <mat-form-field class="example-full-width mb-3" appearance="outline">
+                      <mat-label>Estatus del Ciclo</mat-label>
+                      <input matInput formControlName="estatus" required>
+                      <mat-error *ngIf="cicloForm.get('estatus').hasError('estatus') && cicloForm.get('email').touched">
+                        Ingresa un estatus valido
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-3">
+                    <mat-form-field class="example-full-width mb-3" appearance="outline">
+                      <mat-label>Fecha Inicio</mat-label>
+                      <input matInput [matDatepicker]="picker" formControlName="fechaInicio" required>
+                      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                      <mat-datepicker #picker></mat-datepicker>
+                      <mat-error *ngIf="cicloForm.get('fechaInicio').hasError('required')">
+                       Ingresa una fecha de inicio
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                  <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-3">
+                    <mat-form-field class="example-full-width mb-3" appearance="outline">
+                      <mat-label>Fecha Final</mat-label>
+                      <input matInput [matDatepicker]="picker" formControlName="fechaFin" required>
+                      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                      <mat-datepicker #picker></mat-datepicker>
+                      <mat-error *ngIf="cicloForm.get('fechaFin').hasError('required')">
+                        Ingresa una fecha de término
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                  <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-3">
+                    <mat-form-field class="example-full-width mb-3" appearance="outline">
+                      <mat-label>Currency</mat-label>
+                      <input matInput formControlName="periodo" type="text" required>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-3">
+                    <button class="btn-space" [disabled]="!cicloForm.valid " mat-raised-button
+                      color="primary">Guardar</button>
+                    <button type="button" mat-button>Cancelar</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
